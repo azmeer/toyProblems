@@ -52,3 +52,30 @@
 
   The array containing the grouped dishes.
  */
+
+/*
+  Input: an array of dishes where a dish is an array of strings with the first being the
+         name of the dish and the remaining strings being ingredients.
+  Output: an array of groups where a group is an array of strings with the first being
+         the name of an ingredient and the remaining strings being dishes which contain
+         said ingredient, ordered lexicographically.
+
+  We are guaranteed that there are at least one dish and at most 500.
+  We are guaranteed that all dishes have at least one ingredient and at most 10.
+  We are guaranteed that each ingredient is at least one character in length and at most 
+    500.
+  All dish names are unique.
+  All ingredients are listed only once per dish.
+
+  Pseudocode:
+    Iterate over dishes
+    For each dish
+      insert the dish into a hash of ingredients as keys, with each bucket a list of dishes
+    Then iterate over sorted hash keys (ingredients)
+      add the sorted bucket for each ingredient to the results list
+ */
+
+
+
+
+
