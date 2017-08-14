@@ -87,7 +87,6 @@ const hashDish = (hash, dish) => {
 
 
 const groupingDishes = (dishes) => {
-  // take the first string and use it as a value
   const ingrToDish = dishes.reduce((hash, dish) => hashDish(hash, dish), {});
   return Object.keys(ingrToDish).sort().filter(ingr => ingrToDish[ingr].length > 1)
     .map(ingr => [ingr].concat(ingrToDish[ingr].sort()));
