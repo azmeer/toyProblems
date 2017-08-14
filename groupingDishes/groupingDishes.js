@@ -58,7 +58,8 @@
          name of the dish and the remaining strings being ingredients.
   Output: an array of groups where a group is an array of strings with the first being
          the name of an ingredient and the remaining strings being dishes which contain
-         said ingredient, ordered lexicographically.
+         said ingredient, ordered lexicographically. 
+         Only if there are two or more dishes with said ingredient.
 
   We are guaranteed that there are at least one dish and at most 500.
   We are guaranteed that all dishes have at least one ingredient and at most 10.
@@ -76,6 +77,18 @@
  */
 
 
+const hashDish = (hash, dish) => {
+  for (let i = 1; i < dish.length; i++) {
+    hash[dish[i]] = hash[dish[i]] ? hash[dish[i]].concat([dish[0]]) : [dish[0]];
+  }
+  return hash;
+};
 
 
 
+const groupingDishes = (dishes) => {
+  // take the first string and use it as a value
+  const ingrToDish = dishes.reduce((hash, dish) => hashDish(hash, dish), {});
+  return Object.keys(ingrToDish).sort().filter(ingr => ingrToDish[ingr].length > 1)
+    .map(ingr => [ingr].concat(ingrToDish[ingr].sort()));
+};
