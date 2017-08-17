@@ -50,3 +50,14 @@ i not in connections[i].
 
 Return True if connections describes a graph with a directed cycle, or False otherwise.
  */
+
+// The definition of a cycle is: a graph where al nodes have incoming edges
+// Pseudocode:
+//   Build list of incoming edges per node
+//   Iterate through incoming list
+//     Identify each node with no incoming edges add it to prune list
+//   Iterate through Prune list
+//     Remove node from incoming list
+//     Remove edge from incoming list
+//   Repeat until either no prune candidates (cycle exists) or incoming list is empty (no cycle)
+
