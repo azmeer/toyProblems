@@ -61,3 +61,6 @@ Return True if connections describes a graph with a directed cycle, or False oth
 //     Remove edge from incoming list
 //   Repeat until either no prune candidates (cycle exists) or incoming list is empty (no cycle)
 
+const hasDeadlock = (graph) => {
+
+};
