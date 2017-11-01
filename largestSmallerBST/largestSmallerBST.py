@@ -27,22 +27,20 @@ class BinarySearchTree:
   def __init__(self):
       self.root = None
 
-  def find_largest_descendant(self, node):
-    if node:
-      return node if not node.right else self.find_largest_descendant(node.right)
-    else:
-      return None
-  
-  def find_first_smaller_node(self, node, num):
-    if node:
-      return node if (node.key < num) else self.find_first_smaller_node(node.left, num)
-    else:
-      return None
-      
   def find_largest_smaller_key(self, num):
-    node = self.find_largest_descendant(self.find_first_smaller_node(self.root, num)) 
-    return node.key if node else -1
+      result = -1
+      node = self.root
+      while (node):
+          # traverse down to largest key on node's right
+          if (node.key < num): # will always be true for subtree to smaller key
+              result = node.key
+              node = node.right
+          else:
+          # keep traversing down to the left to find smaller key
+              node = node.left 
 
+      return result
+  
   # Given a binary search tree and a number, inserts a
   # new node with the given number in the correct place
   # in the tree. Returns the new root pointer which the
