@@ -18,6 +18,5 @@ def array_of_products(arr, step):
   return products
 
 def array_of_array_products(arr):
-  return [x*y for x, y in zip(array_of_products(arr, 1), array_of_products(arr, -1))]
+  return [x*y for x, y in zip(array_of_products(arr, 1), array_of_products(arr, -1))] if len(arr) > 1 else []
 
-print array_of_products([1], 1)
