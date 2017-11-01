@@ -34,5 +34,18 @@ queries[i][0] ≤ queries[i][1].
 An integer that is the sum of all of the sums gotten from querying nums, taken modulo 109 + 7.
 """
 
+def gen_sums(nums):
+    sums = [nums[0]]
+    for index in range(1, len(nums)):
+        sums.append(nums[index] + sums[index - 1])
+    return sums
+
+def get_query_sum(sums, start, end):
+    return sums[end] - sums[start - 1] if start else sums[end]
+
 def sumInRange(nums, queries):
-    return (sum([item for sublist in [nums[start:end + 1] for start, end in queries] for item in sublist])) % (10**9 + 7)
+    sums = gen_sums(nums)
+    return sum([get_query_sum(sums, start, end) for start, end in queries]) % (10**9 + 7)
+
+#def sumInRange(nums, queries):
+#    return (sum([item for sublist in [nums[start:end + 1] for start, end in queries] for item in sublist])) % (10**9 + 7)
