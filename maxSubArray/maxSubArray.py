@@ -24,6 +24,8 @@ Output
 -1
 
 See: https://en.wikipedia.org/wiki/Maximum_subarray_problem
+Key note:
+  either the max subarray sum ending at position i + 1 includes the max subarray sum ending at position i or it doesn't
 
 """
 def max_sub_array(array):
